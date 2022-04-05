@@ -11,6 +11,7 @@ import SignIn from "./singIn&singUp/signIn/SignIn";
 import SignUp from "./singIn&singUp/signUp/SignUp";
 import { getUser } from "../redux/features/application";
 import EditProfile from "./EditProfile/EditProfile";
+import Posts from "./profile/posts/Posts/Posts";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,14 @@ function App() {
                 element={
                   <>
                     <HeaderForUser /> <Saved />
+                  </>
+                }
+              />
+              <Route
+                path="/public"
+                element={
+                  <>
+                    <HeaderForUser /> <Posts />
                   </>
                 }
               />

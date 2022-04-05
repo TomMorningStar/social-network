@@ -2,6 +2,7 @@ const initialState = {
   userINF: [],
   token: localStorage.getItem("token"),
   id: "",
+  login: "",
   firstname: "",
   lastname: "",
   image: "",
@@ -42,6 +43,7 @@ const application = (state = initialState, action) => {
         loading: false,
         token: action.payload.token,
         id: action.payload.id,
+        login: action.payload.login,
         firstname: action.payload.firstname,
         lastname: action.payload.lastname,
       };
@@ -65,6 +67,7 @@ const application = (state = initialState, action) => {
         ...state,
         userINF: [...state.userINF, action.payload],
         id: action.payload.id,
+        login: action.payload.login,
         firstname: action.payload.firstname,
         lastname: action.payload.lastname,
         loading: false,
@@ -157,6 +160,7 @@ export const loginUser = (email, password) => {
           payload: {
             token: token.token,
             id: token.id,
+            login: token.login,
             firstname: token.firstname,
             lastname: token.lastname,
           },
@@ -190,6 +194,7 @@ export const getUser = () => {
           type: "user/get/fullfilled",
           payload: {
             id: user.id,
+            login: user.login,
             firstname: user.firstname,
             lastname: user.lastname,
             image: user.image,

@@ -74,7 +74,7 @@ const Ribbon = () => {
               {likePost ? (
                 <svg
                   aria-label="Не нравится"
-                  class="_8-yf5 "
+                  className="_8-yf5 "
                   color="#ed4956"
                   fill="#ed4956"
                   height="24"
@@ -87,7 +87,7 @@ const Ribbon = () => {
               ) : (
                 <svg
                   aria-label="Нравится"
-                  class="_8-yf5 "
+                  className="_8-yf5 "
                   color="#262626"
                   fill="#262626"
                   height="24"
@@ -102,7 +102,7 @@ const Ribbon = () => {
             <div onClick={hundleShowComments} className={styles.commentIcon}>
               <svg
                 aria-label="Комментировать"
-                class="_8-yf5 "
+                className="_8-yf5 "
                 color="#262626"
                 fill="#262626"
                 height="24"
@@ -124,7 +124,7 @@ const Ribbon = () => {
             {savePost ? (
               <svg
                 aria-label="Удалить"
-                class="_8-yf5 "
+                className="_8-yf5 "
                 color="#262626"
                 fill="#262626"
                 height="24"
@@ -137,7 +137,7 @@ const Ribbon = () => {
             ) : (
               <svg
                 aria-label="Сохранить"
-                class="_8-yf5 "
+                className="_8-yf5 "
                 color="#262626"
                 fill="#262626"
                 height="24"

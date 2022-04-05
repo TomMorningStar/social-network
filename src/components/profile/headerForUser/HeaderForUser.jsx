@@ -6,10 +6,11 @@ import Logo from "../../Images/user.png";
 import styles from "../Profile.module.css";
 
 const HeaderForUser = () => {
-  const { image, loading, firstname, lastname } = useSelector(
+  const { image, loading, firstname, lastname, login } = useSelector(
     (state) => state.application
   );
-  console.log(image);
+  const {}
+  console.log(login);
   return (
     <>
       <div className={styles.header}>
@@ -79,12 +80,12 @@ const HeaderForUser = () => {
               <b>194</b> подписок
             </div>
           </div>
-          <div className={styles.descriptionName}>Sad.Adam</div>
+          <div className={styles.descriptionName}>{login}</div>
         </div>
       </div>
       <div className={styles.menu}>
         <div className={styles.menuMain}>
-          <a className={styles.menuLink} href="kjkj">
+          <Link className={styles.menuLink} to="/public">
             <svg
               aria-label=""
               className="_8-yf5 "
@@ -152,10 +153,10 @@ const HeaderForUser = () => {
               ></line>
             </svg>
             <div className={styles.menuText}>ПУБЛИКАЦИИ</div>
-          </a>
+          </Link>
         </div>
         <div className={styles.menuMain}>
-          <a className={styles.menuLink} href="hjkl">
+          <Link className={styles.menuLink} to="/public">
             <svg
               aria-label=""
               className="_8-yf5 "
@@ -169,7 +170,7 @@ const HeaderForUser = () => {
               <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 22.5C6.2 22.5 1.5 17.8 1.5 12S6.2 1.5 12 1.5 22.5 6.2 22.5 12 17.8 22.5 12 22.5zm5-11.8l-6.8-3.9c-.5-.3-1-.3-1.5 0-.4.3-.7.7-.7 1.3v7.8c0 .5.3 1 .8 1.3.2.1.5.2.8.2s.5-.1.8-.2l6.8-3.9c.5-.3.8-.8.8-1.3s-.5-1-1-1.3zm-7.5 5.2V8.1l6.8 3.9-6.8 3.9z"></path>
             </svg>
             <div className={styles.menuText}>ВИДЕО</div>
-          </a>
+          </Link>
         </div>
         <div className={styles.menuMain}>
           <a className={styles.menuLink} href="sdfg">

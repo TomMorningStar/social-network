@@ -23,40 +23,38 @@ const Messages = () => {
 
   useEffect(() => {
     socket.current = io("http://localhost:8900");
-
   });
-  useEffect(()=>{
-  
-    socket.current.on("getMessage", (data) => {
-      console.log(data);
-      setArrivelMessages ({
-        sender: data.senderId,
-        text: data.text,
-      });
-      setMessages([...messages, arrivelMessages])
+  useEffect(() => {
+    socket.current.on(
+      "getMessage",
+      (data) => {
+        console.log(data);
+        setArrivelMessages({
+          sender: data.senderId,
+          text: data.text,
+        });
+        console.log(arrivelMessages);
+        setMessages([...messages, arrivelMessages]);
+      },
+      arrivelMessages
+    );
+  }, [arrivelMessages]);
 
-    },arrivelMessages );
-    
-  },[arrivelMessages])
-  console.log(currentChat)
   useEffect(() => {
     // setMessages(message)
     arrivelMessages &&
       currentChat?.members.includes(arrivelMessages.sender) &&
-
       setMessages((prev) => [...prev, arrivelMessages]);
   });
 
-
   useEffect(() => {
     socket.current.emit("addUser", userId);
-    socket.current.on("getUsers", (users) => {
-    });
-  }, [dispatch]);
+    socket.current.on("getUsers", (users) => {});
+  }, [userId]);
   useEffect(() => {
     dispatch(getMessage(currentChat?._id));
     setMessages(message);
-  }, [currentChat]);
+  }, [message]);
 
   useEffect(() => {
     dispatch(getConversation());
@@ -66,12 +64,11 @@ const Messages = () => {
     const messagePost = {
       sender: userId,
       text: text,
-      conversationId: currentChat._id
-    }
-    console.log(messagePost)
+      conversationId: currentChat._id,
+    };
+    console.log(messagePost);
     const receiverId = currentChat?.members.find(
       (member) => member._id !== userId
-    
     );
     socket.current.emit("sendMessage", {
       senderId: userId,
@@ -80,7 +77,7 @@ const Messages = () => {
     });
     // setMessages([...messages, messagePost])
   };
-  console.log(state)
+  console.log(state);
 
   return (
     <>
