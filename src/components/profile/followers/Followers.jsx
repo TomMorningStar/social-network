@@ -5,12 +5,12 @@ import style from './Followers.module.css';
 import logo from "../../Images/user.png";
 
 
-const Followers = ( {setFollows , id }) => {
+const Followers = ( {setFollows , user }) => {
     const dispatch = useDispatch()
 
   
 
-    const user = useSelector((state)=> state.application.searchUser)
+    const user1 = useSelector((state)=> state.application.searchUser)
 
     const handleCloseWindow = () => {
         setFollows(false)
@@ -34,7 +34,7 @@ const Followers = ( {setFollows , id }) => {
                 <input className={style.search} type="search" autoComplete='on' placeholder='Поиск по страницам'/>
             </div>
             <div className={style.mainUsers}>
-                {user?.freinds?.map((item)=>{
+                {user?user?.freinds?.map((item)=>{
                     return(
                         <div className={style.user}>
                             {console.log(item)}
@@ -46,7 +46,22 @@ const Followers = ( {setFollows , id }) => {
                             </div>
                         </div>
                     )
-                })}
+                })
+            :
+            user1?.freinds?.map((item)=>{
+                return(
+                    <div className={style.user}>
+                        {console.log(item)}
+                        <div className={style.userImg}><img src={item.avatar?`http://localhost:4000/${item.avatar}`:logo} alt='userImg'/></div>
+                        <div className={style.userDescription}>
+                            <div className={style.userName}>{item.login}</div>
+                            <div className={style.description}>{item.firstname}</div>
+                            <button className={style.subscribeButton}>Подписаться</button>
+                        </div>
+                    </div>
+                )
+            })
+            }
             </div>
         </div>
     );

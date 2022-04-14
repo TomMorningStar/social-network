@@ -108,12 +108,12 @@ const HeaderForUser = () => {
             </div>
             {follows && (
               <div className={styles.followComponentWrap}>
-                <Followers setFollows={setFollows} />
+                <Followers setFollows={setFollows} user = {user} />
               </div>
             )}
             {subscription && (
               <div  className={styles.subscriptionComponentWrap}>
-                <Subscribers setSubscription={setSubscription} />
+                <Subscribers setSubscription={setSubscription} user = {user} />
               </div>
             )}
           </div>
