@@ -57,20 +57,10 @@ const Header = () => {
 
           {window && (
             <div
-              style={
+              className={
                 usersList.length > 5
-                  ? {
-                      position: "absolute",
-                      backgroundColor: "#fafafa",
-                      overflowY: "scroll",
-                      height: 300,
-                    }
-                  : {
-                      width: "250px",
-                      position: "absolute",
-                      backgroundColor: "#fafafa",
-                    }
-              }
+                  ? styles.scrolling 
+                  : styles.scrollingNo}
             >
               {usersList.map((user) => {
                 return (
