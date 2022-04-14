@@ -22,7 +22,7 @@ const HeaderUser = ({ image, loading, firstname, lastname, id, userId , posts}) 
   useEffect(() => {
     dispatch(getConversations(id));
   }, [userId]);
-  console.log(posts);
+
   const handleAddFreind = () => {
     dispatch(addFollow(userId));
   };
@@ -45,7 +45,8 @@ const HeaderUser = ({ image, loading, firstname, lastname, id, userId , posts}) 
 
 
   };
-  const { user } = useSelector((state) => state.application);
+  const { user, searchUser } = useSelector((state) => state.application);
+ 
   const follows = user?.follows;
   const follow = follows?.includes(userId.id);
 
@@ -102,12 +103,12 @@ const HeaderUser = ({ image, loading, firstname, lastname, id, userId , posts}) 
             </div>
             {getFollows && (
               <div className={styles.followComponentWrap}>
-                <Followers id = {userId._id} setFollows={setGetFollows}  />
+                <Followers user={searchUser} id = {userId._id} setFollows={setGetFollows}  />
               </div>
             )}
             {subscription && (
               <div className={styles.subscriptionComponentWrap}>
-                <Subscribers id = {userId._id} setSubscription={setSubscription}  />
+                <Subscribers user={searchUser} id = {userId._id} setSubscription={setSubscription}  />
               </div>
             )}
           </div>

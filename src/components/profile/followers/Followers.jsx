@@ -5,12 +5,9 @@ import style from './Followers.module.css';
 import logo from "../../Images/user.png";
 
 
-const Followers = ( {setFollows , user }) => {
+
+const Followers = ( {setFollows , id, user }) => {
     const dispatch = useDispatch()
-
-  
-
-    const user1 = useSelector((state)=> state.application.searchUser)
 
     const handleCloseWindow = () => {
         setFollows(false)
@@ -33,11 +30,11 @@ const Followers = ( {setFollows , user }) => {
                 <div className={style.searchSvg}></div>
                 <input className={style.search} type="search" autoComplete='on' placeholder='Поиск по страницам'/>
             </div>
-            <div className={style.mainUsers}>
-                {user?user?.freinds?.map((item)=>{
+
+            <div className={user.follows > 8 ? style.mainUsersScroll : style.mainUsers}>
+                {user?.freinds?.map((item)=>{
                     return(
                         <div className={style.user}>
-                            {console.log(item)}
                             <div className={style.userImg}><img src={item.avatar?`http://localhost:4000/${item.avatar}`:logo} alt='userImg'/></div>
                             <div className={style.userDescription}>
                                 <div className={style.userName}>{item.login}</div>
@@ -47,20 +44,6 @@ const Followers = ( {setFollows , user }) => {
                         </div>
                     )
                 })
-            :
-            user1?.freinds?.map((item)=>{
-                return(
-                    <div className={style.user}>
-                        {console.log(item)}
-                        <div className={style.userImg}><img src={item.avatar?`http://localhost:4000/${item.avatar}`:logo} alt='userImg'/></div>
-                        <div className={style.userDescription}>
-                            <div className={style.userName}>{item.login}</div>
-                            <div className={style.description}>{item.firstname}</div>
-                            <button className={style.subscribeButton}>Подписаться</button>
-                        </div>
-                    </div>
-                )
-            })
             }
             </div>
         </div>

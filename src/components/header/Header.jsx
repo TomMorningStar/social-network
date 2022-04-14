@@ -102,7 +102,7 @@ const Header = () => {
           <AddPosts />
           <RibbonPage />
           <MessagePage />
-          <NotificationsPage />
+          {/* <NotificationsPage /> */}
           <ExitUser />
           <UserPage />
         </div>

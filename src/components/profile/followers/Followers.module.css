@@ -49,12 +49,14 @@
     outline: none;
 }
 .mainUsers {
-    height: 430px;
     margin: 9px 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    overflow-y: auto;
+}
+.mainUsersScroll {
+    height: 430px;
+    overflow-y: scroll;
 }
 .mainUsers::-webkit-scrollbar{
     width: 10px;

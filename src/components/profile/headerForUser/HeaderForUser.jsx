@@ -19,18 +19,13 @@ const HeaderForUser = () => {
   const handleGetSubscription = () => {
     setFollows(false)
     setSubscription(!subscription);
-    console.log(follows)
   };
   const { user, loading } = useSelector((state) => state.application);
 
   const handleGetFollows = () => {
     setSubscription(false)
     setFollows(!follows);
-    console.log(subscription)
   };
-
-//  const userSubscriptionsCount = user.freinds.length;
-//  const userFollowersCount = user.follows.length;
 
   return loading ? (
     "loading..."
@@ -108,12 +103,14 @@ const HeaderForUser = () => {
             </div>
             {follows && (
               <div className={styles.followComponentWrap}>
-                <Followers setFollows={setFollows} user = {user} />
+
+                <Followers user={user} setFollows={setFollows} />
               </div>
             )}
             {subscription && (
               <div  className={styles.subscriptionComponentWrap}>
-                <Subscribers setSubscription={setSubscription} user = {user} />
+
+                <Subscribers user={user} setSubscription={setSubscription} />
               </div>
             )}
           </div>
