@@ -24,6 +24,7 @@ const Messages = () => {
   const [reciver, setReciver] = useState();
 
   const user = useSelector((state) => state.application.id);
+  const login = useSelector((state)=> state.application.firstname)
   const state = useSelector((state) => state.application.token);
 
   useEffect(() => {
@@ -141,7 +142,7 @@ const Messages = () => {
     <>
       <div className={styles.messages}>
         <div className={styles.yourNicknameWrapper}>
-          <span className={styles.yourNickname}>Tommy</span>
+          <span className={styles.yourNickname}>{login}</span>
         </div>
 
         <div className={styles.chatUserNickname}>
@@ -186,7 +187,7 @@ const Messages = () => {
             </div>
           </>
         ) : (
-          <div className={styles.openDialog}>Начать беседу</div>
+          <div className={styles.openDialog}>Нажмите на беседу <br></br>чтобы начать чат</div>
         )}
       </div>
     </>

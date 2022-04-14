@@ -50,3 +50,22 @@ header input {
   margin-left: 10px;
   margin-bottom: 5px;
 }
+.scrolling {
+   position: absolute;
+   background-color: #fafafa;
+   overflow-y: auto;
+   height: 300px;
+   width: 100%;
+}
+.scrolling::-webkit-scrollbar{
+  width: 10px;
+}
+.scrolling::-webkit-scrollbar-thumb{
+  background: #b4b8bb;
+  border-radius: 10px;
+}
+.scrollingNo {
+   width: 250px;
+   position: absolute;
+   background-color: #fafafa;
+}
