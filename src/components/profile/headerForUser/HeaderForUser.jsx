@@ -118,7 +118,7 @@ const HeaderForUser = () => {
       </div>
       <div className={styles.menu}>
         <div className={styles.menuMain}>
-          <Link className={styles.menuLink} to="/public">
+          <Link className={styles.menuLink} to="/">
             <svg
               ariaLabel=""
               className="_8-yf5 "
