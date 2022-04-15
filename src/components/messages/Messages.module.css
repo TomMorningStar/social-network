@@ -2,17 +2,19 @@
   border: 1px solid rgb(226, 226, 226);
   background-color: #fff;
   display: flex;
+  border-radius: 10px;
 }
 .messagesBlock {
   border-left: 1px solid rgb(226, 226, 226);
   display: flex;
   border-right: 1px solid rgb(226, 226, 226);
   border-bottom: 1px solid rgb(226, 226, 226);
+  border-radius: 10px;
 }
 .yourNicknameWrapper {
   width: 33%;
   padding: 15px 0;
-  border-right: 1px solid rgb(226, 226, 226);
+  /* border-right: 1px solid rgb(226, 226, 226); */
   text-align: center;
 }
 
@@ -28,6 +30,7 @@
   width: 33%;
   overflow-y: auto;
   border-right: 1px solid rgb(226, 226, 226);
+  border-top-left-radius: 10px;
 }
 .chats::-webkit-scrollbar{
   width: 10px;
@@ -67,6 +70,8 @@
   overflow-y: auto;
   overflow-x:hidden;  /*для горизонтального*/
   padding-bottom: 70px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .dialogues::-webkit-scrollbar{
   width: 10px;
@@ -139,8 +144,9 @@
   color: rgb(157 157 157);
 }
 .openDialog {
-  margin: 20px auto;
+  margin: 50px auto;
   font-style: italic;
   font-weight: 700;
-  font-size: larger;
+  font-size: 34px;
+  opacity: .2;
 }

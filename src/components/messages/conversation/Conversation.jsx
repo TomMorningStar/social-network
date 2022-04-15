@@ -18,7 +18,6 @@ const Conversation = ({ conversation, userId }) => {
   }, [conversation.members, dispatch, user?.firstname, userId]);
 
   const userID = conversation.members.find((m) => m._id !== userId);
-  console.log(userID);
   return (
     <>
       <div className={styles.userMessageSend}>

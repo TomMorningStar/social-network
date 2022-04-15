@@ -10,14 +10,13 @@ const Message = ({ message, userId, convers }) => {
     (conversOne) => conversOne._id === message.conversationId
   );
   const sender = conversation?.members?.find((user) => user._id !== userId);
-  console.log(sender?.avatar);
 
   const host = "http://localhost:4000/";
   const imgUser = message?.sender?.avatar
     ? message?.sender?.avatar
     : user?.avatar;
   const sendUser = sender?.avatar ? host + sender?.avatar : Logo;
-  console.log(sendUser);
+
   const yourAvatar = host + imgUser;
   return (
     <div>

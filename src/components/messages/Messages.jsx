@@ -24,12 +24,12 @@ const Messages = () => {
   const [reciver, setReciver] = useState();
 
   const user = useSelector((state) => state.application.id);
+  const login = useSelector((state)=> state.application.firstname)
   const state = useSelector((state) => state.application.token);
 
   useEffect(() => {
     socket.current = io("ws://localhost:8900/");
     socket.current.on("getMessage", (data) => {
-      console.log(data);
       setArrivalMessage({
         sender: data.senderId,
         text: data.text,
@@ -49,7 +49,6 @@ const Messages = () => {
   useEffect(() => {
     socket.current.emit("addUser", user);
     socket.current.on("getUsers", (users) => {});
-    console.log(user);
   }, [user]);
 
   useEffect(() => {
@@ -108,7 +107,6 @@ const Messages = () => {
       receiverId: receiverId._id.toString(),
       text: newMessage,
     });
-    console.log(receiverId._id);
 
     try {
       const res = await axios.post("http://localhost:4000/message", message, {
@@ -130,11 +128,21 @@ const Messages = () => {
     setReciver(userID);
   };
 
+  const dialog = useRef()
+  const scrollChat = ()=>{
+          dialog.current.scrollTop = dialog.current.scrollHeight
+  }
+  
+  const handleCurrentChat =  (c) => {
+    setCurrentChat(c);
+    scrollChat()  
+  }
+
   return (
     <>
       <div className={styles.messages}>
         <div className={styles.yourNicknameWrapper}>
-          <span className={styles.yourNickname}>Tommy</span>
+          <span className={styles.yourNickname}>{login}</span>
         </div>
 
         <div className={styles.chatUserNickname}>
@@ -148,7 +156,7 @@ const Messages = () => {
         <div className={styles.chats}>
           {conversations?.map((c) => {
             return (
-              <div onClick={() => setCurrentChat(c)}>
+              <div onClick={() => handleCurrentChat(c)}>
                 <span onClick={() => handleName(c)}>
                   <Conversation conversation={c} userId={user} />
                 </span>
@@ -158,7 +166,7 @@ const Messages = () => {
         </div>
         {currentChat ? (
           <>
-            <div className={styles.dialogues}>
+            <div ref={dialog} className={styles.dialogues}>
               {messages?.map((m) => {
                 return (
                   <Message message={m} convers={conversations} userId={user} />
@@ -179,7 +187,7 @@ const Messages = () => {
             </div>
           </>
         ) : (
-          <div className={styles.openDialog}>Начать беседу</div>
+          <div className={styles.openDialog}>Нажмите на беседу <br></br>чтобы начать чат</div>
         )}
       </div>
     </>
