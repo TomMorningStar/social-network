@@ -103,11 +103,13 @@ const HeaderForUser = () => {
             </div>
             {follows && (
               <div className={styles.followComponentWrap}>
+
                 <Followers user={user} setFollows={setFollows} />
               </div>
             )}
             {subscription && (
               <div  className={styles.subscriptionComponentWrap}>
+
                 <Subscribers user={user} setSubscription={setSubscription} />
               </div>
             )}
@@ -116,7 +118,7 @@ const HeaderForUser = () => {
       </div>
       <div className={styles.menu}>
         <div className={styles.menuMain}>
-          <Link className={styles.menuLink} to="/public">
+          <Link className={styles.menuLink} to="/">
             <svg
               ariaLabel=""
               className="_8-yf5 "

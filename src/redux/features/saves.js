@@ -41,6 +41,7 @@ export const getSaves = () => {
         },
       });
       const saves = await res.json();
+      console.log(saves)
       if (saves.error) {
         dispatch({ type: "get/saves/rejected", error: saves.error });
       } else {
